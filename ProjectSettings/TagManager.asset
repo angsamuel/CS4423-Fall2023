@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - PointsHandler
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
+  - Raycast
+  - Block
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
     locked: 0
   - name: Projectiles
     uniqueID: 856076605
+    locked: 0
+  - name: UI
+    uniqueID: 583446353
     locked: 0
