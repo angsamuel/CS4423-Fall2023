@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] protected float speed = 5;
     [SerializeField] AnimationStateChanger animationStateChanger;
-    [SerializeField] Transform body;
+    public Transform body;
     protected Rigidbody2D rb;
 
     void Awake(){
@@ -31,6 +31,16 @@ public class Movement : MonoBehaviour
         }else{
             animationStateChanger?.ChangeAnimationState("Idle");
         }
+    }
+
+    public void MoveToward(Vector3 targetPosition){
+        Vector3 direction = targetPosition - transform.position;
+        direction = Vector3.Normalize(direction);
+        MoveRB(direction);
+    }
+
+    public void Stop(){
+        MoveRB(Vector3.zero);
     }
 
     // public void StepMove(Vector3 direction){
