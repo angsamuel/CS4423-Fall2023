@@ -7,7 +7,7 @@ public class PlatformerCharacter : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float speed = 5;
     [SerializeField] float jumpForce = 5;
-
+    [SerializeField] float groundCheckRadius = .25f;
     [SerializeField] LayerMask groundMask;
 
 
@@ -24,8 +24,15 @@ public class PlatformerCharacter : MonoBehaviour
         rb.velocity = new Vector3(0,rb.velocity.y,0);
     }
     public void Jump(){
-        if(Physics2D.OverlapCircleAll(transform.position-new Vector3(0,.5f,0),1,groundMask).Length > 0){
+
+        if(Physics2D.OverlapCircleAll(transform.position-new Vector3(0,.5f,0),groundCheckRadius,groundMask).Length > 0){
             rb.AddForce(new Vector3(0,jumpForce,0),ForceMode2D.Impulse);
         }
+    }
+
+    void OnDrawGizmos(){
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position-new Vector3(0,.5f,0),groundCheckRadius);
     }
 }
