@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PointsHandler
   - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
