@@ -9,7 +9,7 @@ public class MoveWithCommands : MonoBehaviour
 
     public UnityEvent onLossEvent;
     public List<CommandMove> commandHistory;
-
+    
     void Awake(){
         commandHistory = new List<CommandMove>();
     }

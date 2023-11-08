@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputWithCommands : MonoBehaviour
 {
+    
     [SerializeField] MoveWithCommands mwc;
 
     void Update(){

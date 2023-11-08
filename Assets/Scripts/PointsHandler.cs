@@ -15,6 +15,8 @@ public class PointsHandler : MonoBehaviour
         }
     }
 
+
+
     public void AddDistance(float d){
         distanceTraveled += d;
     }
