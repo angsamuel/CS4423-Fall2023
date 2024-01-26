@@ -3,19 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - PointsHandler
-  - Ground
-  - Coin
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Raycast
-  - Block
+  - 
+  - 
   - 
   - 
   - 
@@ -44,9 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Projectiles
-    uniqueID: 856076605
+  - name: Boxes
+    uniqueID: 2460611509
     locked: 0
-  - name: UI
-    uniqueID: 583446353
+  - name: Characters
+    uniqueID: 3150172533
     locked: 0
