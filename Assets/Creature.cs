@@ -13,16 +13,22 @@ public class Creature : MonoBehaviour
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
 
+    [Header("Physics")]
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] float jumpOffset = -.5f;
+    [SerializeField] float jumpRadius = .25f;
+
     [Header("Flavor")]
     [SerializeField] string creatureName = "Meepis";
 
     [Header("Tracked Data")]
     [SerializeField] Vector3 homePosition = Vector3.zero;
 
-    [SerializeField] GameObject box;
     Rigidbody2D rb;
 
-
+    void Awake(){
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +36,7 @@ public class Creature : MonoBehaviour
 
         Debug.Log(health);
 
-        rb = GetComponent<Rigidbody2D>();
 
-        SpriteRenderer sr = box.GetComponent<SpriteRenderer>();
-        sr.color = Color.black;
     }
 
 
@@ -44,6 +47,10 @@ public class Creature : MonoBehaviour
         //transform.position += new Vector3(1,0,0);
         //transform.position += new Vector3(speed,0,0) ;
         //MoveCreature(new Vector3(-1,-1,0));
+    }
+
+    void FixedUpdate(){
+
     }
 
     public void MoveCreature(Vector3 direction)
@@ -75,7 +82,10 @@ public class Creature : MonoBehaviour
 
     public void Jump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        if(Physics2D.OverlapCircleAll(transform.position + new Vector3(0,jumpOffset,0),jumpRadius,groundMask).Length > 0){
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        }
+
     }
 
 

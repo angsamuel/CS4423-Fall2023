@@ -6,11 +6,11 @@ public class PlayerInputHandler : MonoBehaviour
 {
 
     [SerializeField] Creature playerCreature;
-
+    ProjectileThrower projectileThrower;
 
     void Start()
     {
-
+        projectileThrower = playerCreature.GetComponent<ProjectileThrower>();
     }
 
     // Update is called once per frame
@@ -18,15 +18,15 @@ public class PlayerInputHandler : MonoBehaviour
     {
         Vector3 input = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            input.y += 1;
-        }
+        // if (Input.GetKey(KeyCode.W))
+        // {
+        //     input.y += 1;
+        // }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            input.y += -1;
-        }
+        // if (Input.GetKey(KeyCode.S))
+        // {
+        //     input.y += -1;
+        // }
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -46,6 +46,10 @@ public class PlayerInputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerCreature.Jump();
+        }
+
+        if(Input.GetKeyDown(KeyCode.E)){
+            projectileThrower.Launch(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
         playerCreature.MoveCreature(input);
