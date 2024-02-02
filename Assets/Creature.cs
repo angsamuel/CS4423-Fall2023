@@ -88,6 +88,11 @@ public class Creature : MonoBehaviour
 
     }
 
+    public void PickupCoin(){
+        CoinCounter.singleton.RegisterCoin();
+        GetComponent<AudioSource>().Play();
+    }
+
 
 
 }

@@ -19,9 +19,7 @@ public class SmoothFollow : MonoBehaviour
     }
 
 
-    void Update(){
 
-    }
     // Update is called once per frame
     void FixedUpdate()
     {
