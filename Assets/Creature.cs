@@ -20,6 +20,8 @@ public class Creature : MonoBehaviour
 
     [Header("Flavor")]
     [SerializeField] string creatureName = "Meepis";
+    [SerializeField] private GameObject body;
+    [SerializeField] private List<AnimationStateChanger> animationStateChangers;
 
     [Header("Tracked Data")]
     [SerializeField] Vector3 homePosition = Vector3.zero;
@@ -55,6 +57,7 @@ public class Creature : MonoBehaviour
 
     public void MoveCreature(Vector3 direction)
     {
+
         if (movementType == CreatureMovementType.tf)
         {
             MoveCreatureTransform(direction);
@@ -64,6 +67,18 @@ public class Creature : MonoBehaviour
             MoveCreatureRb(direction);
         }
 
+        //set animation
+        if(direction.x != 0){
+            foreach(AnimationStateChanger asc in animationStateChangers){
+                asc.ChangeAnimationState("Walk",speed);
+            }
+        }else{
+            foreach(AnimationStateChanger asc in animationStateChangers){
+                asc.ChangeAnimationState("Idle");
+            }
+        }
+
+
 
     }
 
@@ -71,6 +86,11 @@ public class Creature : MonoBehaviour
     {
         Vector3 currentVelocity = new Vector3(0, rb.velocity.y, 0);
         rb.velocity = (currentVelocity) + (direction * speed);
+        if(rb.velocity.x < 0){
+            body.transform.localScale = new Vector3(-1,1,1);
+        }else if(rb.velocity.x > 0){
+            body.transform.localScale = new Vector3(1,1,1);
+        }
         //rb.AddForce(direction * speed);
         //rb.MovePosition(transform.position + (direction * speed * Time.deltaTime))
     }
