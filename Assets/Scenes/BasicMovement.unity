@@ -1309,6 +1309,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6833482185379473859, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 803167456}
     - targetCorrespondingSourceObject: {fileID: 5267583394387202235, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
       insertIndex: -1
       addedObject: {fileID: 503039224}
@@ -1321,17 +1324,63 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 123197887978393880, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
   m_PrefabInstance: {fileID: 803167449}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 803167451}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b59b642c7c1410346b1e13dfdc77f94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &803167451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6833482185379473859, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
+  m_PrefabInstance: {fileID: 803167449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &803167455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3904117537543332654, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
   m_PrefabInstance: {fileID: 803167449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &803167456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803167451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3dfd05654eb61f4a9d575f0ea49bdec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCoinPickup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 715026565}
+        m_TargetAssemblyTypeName: CoinCounter, Assembly-CSharp
+        m_MethodName: RegisterCoin
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  myPickupEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1057793320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+  m_PrefabInstance: {fileID: 3141480908993401562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e8926cfcbdaba41b9692fcdd923492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089931250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,50 +1622,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4515f0d9e74adb4c95b0ca9a41e2641, type: 3}
---- !u!1 &1498961541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1498961543}
-  - component: {fileID: 1498961542}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1498961542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498961541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c21f87588c52ac42abd87f86f308d19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1498961543
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498961541}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3383627, y: 2.084795, z: 0.070948176}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1595471181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2200,6 +2205,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: coinClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 62e6b1f25571dd14db6fe8cc746d7c7d, type: 3}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1057793320}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PrintPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Coin, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767373518312899759, guid: dab0f02036e206640aee3aacb4703848, type: 3}
+      propertyPath: onPickupEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7641244862708008942, guid: dab0f02036e206640aee3aacb4703848, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.28999996
@@ -2438,4 +2483,3 @@ SceneRoots:
   - {fileID: 1101025386}
   - {fileID: 1912473355}
   - {fileID: 1695258013}
-  - {fileID: 1498961543}

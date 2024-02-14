@@ -38,7 +38,6 @@ public class Creature : MonoBehaviour
 
         Debug.Log(health);
 
-
     }
 
 
@@ -107,12 +106,5 @@ public class Creature : MonoBehaviour
         }
 
     }
-
-    public void PickupCoin(){
-        CoinCounter.singleton.RegisterCoin();
-        GetComponent<AudioSource>().Play();
-    }
-
-
 
 }

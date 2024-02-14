@@ -20,8 +20,8 @@ public class CoinCounter : MonoBehaviour
 
     }
 
-    public void RegisterCoin(){
-        coinsCollected += 1;
+    public void RegisterCoin(int points = 1){
+        coinsCollected += points;
         coinCounterText.text = coinsCollected.ToString();
     }
 
