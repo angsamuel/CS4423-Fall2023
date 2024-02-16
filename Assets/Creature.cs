@@ -6,9 +6,10 @@ using UnityEngine;
 public class Creature : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] int health = 3;
     [SerializeField] float speed = 0f;
     [SerializeField] float jumpForce = 10;
+    [SerializeField] int health = 3;
+    [SerializeField] int stamina = 3;
 
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
@@ -25,6 +26,8 @@ public class Creature : MonoBehaviour
 
     [Header("Tracked Data")]
     [SerializeField] Vector3 homePosition = Vector3.zero;
+    [SerializeField] CreatureSO creatureSO;
+
 
     Rigidbody2D rb;
 
@@ -45,9 +48,10 @@ public class Creature : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += new Vector3(1,0,0);
-        //transform.position += new Vector3(speed,0,0) ;
-        //MoveCreature(new Vector3(-1,-1,0));
+        if(creatureSO != null){
+            creatureSO.health = health;
+            creatureSO.stamina = stamina;
+        }
     }
 
     void FixedUpdate(){
