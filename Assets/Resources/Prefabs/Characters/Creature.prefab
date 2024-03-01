@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2792645725434183632}
   - component: {fileID: 6394956815530923827}
+  - component: {fileID: 8089565628192763046}
+  - component: {fileID: 9067313443335221706}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98f2aa1674178d244a25aa6beeb29647, type: 3}
+  m_Sprite: {fileID: -838334768, guid: 087326a2fca874043a3962ef772b1fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,6 +86,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8089565628192763046
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267583394387202235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e82928f5ed36384ab2067be122b8b63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9067313443335221706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267583394387202235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd466ff8cc3332140841ab1b609bf7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8089565628192763046}
+  currentState: Idle
 --- !u!1 &6833482185379473859
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +135,7 @@ GameObject:
   - component: {fileID: 82565038393711989}
   - component: {fileID: 1846697947270860494}
   - component: {fileID: 3352908675011414101}
+  - component: {fileID: 5874773608387672265}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -116,7 +154,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.427, y: -0.484, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2792645725434183632}
   m_Father: {fileID: 0}
@@ -133,9 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59b642c7c1410346b1e13dfdc77f94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
   speed: 5
   jumpForce: 15
+  health: 3
+  stamina: 3
   movementType: 1
   groundMask:
     serializedVersion: 2
@@ -143,7 +182,11 @@ MonoBehaviour:
   jumpOffset: -0.5
   jumpRadius: 0.25
   creatureName: Meepis
+  body: {fileID: 5267583394387202235}
+  animationStateChangers:
+  - {fileID: 9067313443335221706}
   homePosition: {x: 0, y: 0, z: 0}
+  creatureSO: {fileID: 11400000, guid: a93bd3014551c6a45bea79d2fdaf7d0d, type: 2}
 --- !u!50 &157982276809837124
 Rigidbody2D:
   serializedVersion: 4
@@ -316,3 +359,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5874773608387672265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833482185379473859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3dfd05654eb61f4a9d575f0ea49bdec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCoinPickup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CoinCounter, Assembly-CSharp
+        m_MethodName: RegisterCoin
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

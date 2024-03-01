@@ -38,6 +38,14 @@ public class PlayerInputHandler : MonoBehaviour
             input.x += 1;
         }
 
+        if(Input.GetKey(KeyCode.W)){
+            input.y += 1;
+        }
+
+        if(Input.GetKey(KeyCode.S)){
+            input.y -= 1;
+        }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             playerCreature.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));

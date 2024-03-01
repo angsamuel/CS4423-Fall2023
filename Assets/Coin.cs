@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour
     // void OnTriggerEnter2D(Collider2D other)
     // {
     //     if(other.GetComponent<Creature>() != null){
-    //         CoinCounter.singleton.RegisterCoin();
+    //         CoinCounter.singleton?.RegisterCoin();
     //         other.GetComponent<AudioSource>()?.PlayOneShot(coinClip);
     //         Destroy(this.gameObject);
 

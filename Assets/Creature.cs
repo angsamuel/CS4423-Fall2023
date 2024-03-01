@@ -6,13 +6,15 @@ using UnityEngine;
 public class Creature : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] float speed = 0f;
+    public float speed = 0f;
     [SerializeField] float jumpForce = 10;
     [SerializeField] int health = 3;
     [SerializeField] int stamina = 3;
 
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
+    public enum CreaturePerspective { topDown, sideScroll };
+    [SerializeField] CreaturePerspective perspectiveType = CreaturePerspective.topDown;
 
     [Header("Physics")]
     [SerializeField] LayerMask groundMask;
@@ -21,7 +23,7 @@ public class Creature : MonoBehaviour
 
     [Header("Flavor")]
     [SerializeField] string creatureName = "Meepis";
-    [SerializeField] private GameObject body;
+    public GameObject body;
     [SerializeField] private List<AnimationStateChanger> animationStateChangers;
 
     [Header("Tracked Data")]
@@ -71,7 +73,7 @@ public class Creature : MonoBehaviour
         }
 
         //set animation
-        if(direction.x != 0){
+        if(direction != Vector3.zero){
             foreach(AnimationStateChanger asc in animationStateChangers){
                 asc.ChangeAnimationState("Walk",speed);
             }
@@ -80,14 +82,24 @@ public class Creature : MonoBehaviour
                 asc.ChangeAnimationState("Idle");
             }
         }
+    }
 
+    public void MoveCreatureToward(Vector3 target){
+        Vector3 direction = target - transform.position;
+        MoveCreature(direction.normalized);
+    }
 
-
+    public void Stop(){
+        MoveCreature(Vector3.zero);
     }
 
     public void MoveCreatureRb(Vector3 direction)
     {
-        Vector3 currentVelocity = new Vector3(0, rb.velocity.y, 0);
+        Vector3 currentVelocity = Vector3.zero;
+        if(perspectiveType == CreaturePerspective.sideScroll){
+            currentVelocity = new Vector3(0, rb.velocity.y, 0);
+        }
+
         rb.velocity = (currentVelocity) + (direction * speed);
         if(rb.velocity.x < 0){
             body.transform.localScale = new Vector3(-1,1,1);
