@@ -159,8 +159,8 @@ Camera:
   m_GameObject: {fileID: 825879701}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   worstProjectiles: 1
   bestProjectiles: 10
   worstProjectileSize: 0.01
-  bestProjectileSize: 2
+  bestProjectileSize: 1
   worstGravity: 1
   bestGravity: 0
 --- !u!212 &2024689409

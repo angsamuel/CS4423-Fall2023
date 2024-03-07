@@ -61,6 +61,9 @@ public class MagicWand : MonoBehaviour
     List<GameObject> pool;
 
     void Start(){
+
+
+
         pool = new List<GameObject>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if(randomizeAttributes){
@@ -135,6 +138,7 @@ public class MagicWand : MonoBehaviour
             //     newProjectile.transform.position = spawnPoint.position;
             // }else{
             newProjectile = Instantiate(projectile,spawnPoint.position,Quaternion.identity);
+            Destroy(newProjectile,10);
             //}
             pool.Add(newProjectile);
 
@@ -172,14 +176,17 @@ public class MagicWand : MonoBehaviour
 
     public static List<float> GetDistribution(int distLen){
         List<float> dist = new List<float>();
+        for(int i = 0; i<distLen; i++){dist.Add(0);}
+        Debug.Log(dist.Count);
         float total = ((float)distLen) / 2;
+        int offset = Random.Range(0,distLen);
         for(int i = 0; i<distLen; i++){
             float min = Mathf.Max(0,total-((distLen-1.0f)-i));
             float max = Mathf.Min(total,1f);
             float randNum = Random.Range(min,max);
             total -= randNum;
-            dist.Add(randNum);
-
+            Debug.Log((i+offset)%distLen);
+            dist[(i+offset)%distLen] = (randNum);
         }
         return dist;
     }
