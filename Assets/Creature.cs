@@ -98,6 +98,7 @@ public class Creature : MonoBehaviour
         Vector3 currentVelocity = Vector3.zero;
         if(perspectiveType == CreaturePerspective.sideScroll){
             currentVelocity = new Vector3(0, rb.velocity.y, 0);
+            direction.y = 0;
         }
 
         rb.velocity = (currentVelocity) + (direction * speed);

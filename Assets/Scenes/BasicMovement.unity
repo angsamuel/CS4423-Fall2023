@@ -1549,13 +1549,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 123197887978393880, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
+      propertyPath: perspectiveType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 157982276809837124, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3904117537543332654, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.007
       objectReference: {fileID: 0}
     - target: {fileID: 3904117537543332654, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.901
+      value: 4.651
       objectReference: {fileID: 0}
     - target: {fileID: 3904117537543332654, guid: 1d34b6ed3723ebc40bec4526f855d101, type: 3}
       propertyPath: m_LocalPosition.z
