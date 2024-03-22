@@ -8,10 +8,7 @@ public class StatusPips : MonoBehaviour
     int cachedValue;
     public GameObject prefab;
     public List<GameObject> pips;
-    // Start is called before the first frame update
-    void Start(){
 
-    }
 
     void Update(){
         FillBar();

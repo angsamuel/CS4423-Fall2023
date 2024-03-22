@@ -12,7 +12,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.name == "PlayerCreature"){
-            PlayerPrefs.SetInt("checkpoint",checkpointID);
+            PlayerPrefs.SetInt(SaveFlags.currentSaveFile + SaveFlags.checkpointSaveFlag,checkpointID);
             CheckpointSystem.singleton.ResetColors();
             GetComponent<SpriteRenderer>().color = new Color(1.0f,0.0f,0.0f);
             

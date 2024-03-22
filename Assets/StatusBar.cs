@@ -6,7 +6,7 @@ public class StatusBar : MonoBehaviour
 {
     public Transform foregroundTransform;
     public Transform catchupTransform;
-    public float catchupSpeed = 1.0f;
+    public float catchupSpeed = 10.0f;
     
     [Range(0f,1f)]
     public float percentage = 1f;

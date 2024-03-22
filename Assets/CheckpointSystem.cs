@@ -19,7 +19,7 @@ public class CheckpointSystem : MonoBehaviour
         for(int i = 0; i<checkpoints.Count; i++){
             checkpoints[i].GetComponent<Checkpoint>().SetID(i);
         }
-        player.transform.position = checkpoints[PlayerPrefs.GetInt("checkpoint")].transform.position;
+        player.transform.position = checkpoints[PlayerPrefs.GetInt(SaveFlags.currentSaveFile + SaveFlags.checkpointSaveFlag)].transform.position;
     }
 
     public void ResetColors(){
